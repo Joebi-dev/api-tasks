@@ -15,14 +15,13 @@ const routes: baseRoutes = {
         let tasks: Array<task> = await db.get('tasks') ?? []
         const validID = typeof taskId === 'string' && !Number.isNaN(Number(taskId)) && parseInt(taskId, 10) > 0
         const validBoolean = (completed.toLowerCase().includes('true') || completed.toLowerCase().includes('false')) && typeof completed === 'string'
-       
+
         if (validID && validBoolean) {
             const id = parseInt(taskId, 10)
             const index = tasks.findIndex(task => task.id === id)
 
-            if (index) {
+            if (index && index > -1) {
                 const completedTick = JSON.parse(completed.toLowerCase())
-                console.log(completedTick)
                 tasks[index].completed = completedTick
                 res.status(200).json({
                     status: 200,
@@ -38,7 +37,7 @@ const routes: baseRoutes = {
                     }
                 )
             }
-                
+
         } else {
             res.status(400).json(
                 {
