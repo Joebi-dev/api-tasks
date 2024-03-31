@@ -14,4 +14,5 @@ app.use(Express.json())
 app.use(router)
 app.listen(porta, () => {
     console.log('rodando na porta ', porta)
+
 })
