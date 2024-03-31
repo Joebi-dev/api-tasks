@@ -12,7 +12,7 @@ async function registerRoutes() {
     try {
         for (const categorie of categories) {
             const routerPath = join(categoriesPath, categorie);
-            const routesFiles = readdirSync(routerPath).filter(file => file.endsWith('.ts'));
+            const routesFiles = readdirSync(routerPath).filter(file => file.endsWith('.js'));
             for (const file of routesFiles) {
                 const filePath = join(routerPath, file)
 

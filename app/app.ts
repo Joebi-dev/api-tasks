@@ -1,5 +1,5 @@
 
-import { router } from './routes'
+import { router } from './src/routes'
 import Express from 'express'
 //variaves
 const porta = 8080
@@ -13,6 +13,6 @@ app.get('/api-docs', (req, res) => {
 app.use(Express.json())
 app.use(router)
 app.listen(porta, () => {
-    console.log('rodando na porta ', porta)
+    console.log(`localhost:${porta}`)
 
 })
